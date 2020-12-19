@@ -1,3 +1,8 @@
 #!/bin/bash
 clear
-echo Welcome to My Fight Game App!
+echo "Welcome to My Fight Game App!"
+echo -n "Guess a number between 0 and 10 and press Enter : "
+read answer
+if [[ answer -eq 5 ]]; then
+   echo "You guessed right!!"
+fi
