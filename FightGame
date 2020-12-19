@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
 echo Welcome to My Fight Game App!
-echo -n "Please type in your name and press Enter : "
-read name
+echo -n "Guess a number between 0 and 10 and press Enter : "
+read answer
 echo Hey $name !
