@@ -1,4 +1,6 @@
 #!/bin/bash
-
 clear
 echo Welcome to My Fight Game App!
+echo -n "Please type in your name and press Enter : "
+read name
+echo Hey $name !
