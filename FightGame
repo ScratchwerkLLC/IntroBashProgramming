@@ -1,3 +1,4 @@
+
 #!/bin/bash
 clear
 echo "Welcome to My Fight Game App!"
@@ -7,6 +8,7 @@ credits(){
   echo "Credits..."
   echo "Developed by Ronnie King"
   echo "Thank you for playing the Scratchwerk Game!"
+  main
 }
 
 exit_game(){
@@ -14,14 +16,48 @@ exit_game(){
   echo "Thanks for playing!"
 }
 
-echo "1. Credits"
-echo "2. Exit"
-echo -n "Type the number of your option and press Enter : "
-read answer
-if [[ $answer -eq 1 ]]; then
-   credits
-elif [[ $answer -eq 2 ]]; then
-   exit_game
-else
-  echo "Invalid option"
-fi
+
+start_game(){
+  clear
+  echo "Oh no! You're surrounded by enemies."
+  echo "There are five of them, and they're all armed"
+  echo "If you fight them, you'll have a chance of winning"
+  echo -n "Type fight or run and press Enter : "
+  read action
+  if [[ $action == "fight"]]; then
+    echo "Congrats you won!!"
+    exit_game
+  elif [[ $action == "run"]]; then
+    echo "Running from it will not save you.  You lost!"
+    echo -n "Would you like to play again? Type Yes or No and press Enter : "
+    read play_again
+    if [[ play_again == "Yes"]]; then
+      start_game
+    else
+      exit_game
+    fi
+  else
+    echo "Invalid choice!"
+    exit_game
+  fi
+}
+
+
+main(){
+  echo "1. Start"
+  echo "2. Credits"
+  echo "3. Exit"
+  echo -n "Type the number of your option and press Enter : "
+  read answer
+  if [[ $answer -eq 1 ]]; then
+     start_game
+  elif [[ $answer -eq 2 ]]; then
+     credits
+  elif [[ $answer -eq 3 ]]; then
+    exit_game
+  else
+    echo "Invalid option"
+  fi
+}
+
+main
