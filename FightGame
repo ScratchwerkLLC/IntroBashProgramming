@@ -1,12 +1,16 @@
 #!/bin/bash
 clear
 echo "Welcome to My Fight Game App!"
-echo -n "Guess a number between 0 and 10 and press Enter : "
+
+credits(){
+  clear
+  echo "Credits..."
+  echo "Developed by Ronnie King"
+  echo "Thank you for playing the Scratchwerk Game!"
+}
+
+echo -n "Would you like to show the game credits? Type Yes or No and press Enter : "
 read answer
-if [[ answer -lt 5 ]]; then
-   echo "You guess too low"
-elif [[ answer -eq 5 ]]; then
-  echo "You guessed right!!"
-else
-  echo "You guess too high"
+if [[ $answer == "Yes" ]]; then
+   credits
 fi
