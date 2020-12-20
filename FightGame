@@ -9,8 +9,15 @@ credits(){
   echo "Thank you for playing the Scratchwerk Game!"
 }
 
+exit_game(){
+  clear
+  echo "Thanks for playing!"
+}
+
 echo -n "Would you like to show the game credits? Type Yes or No and press Enter : "
 read answer
 if [[ $answer == "Yes" ]]; then
    credits
+else
+   exit_game
 fi
