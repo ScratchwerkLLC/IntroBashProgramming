@@ -1,6 +1,7 @@
 #!/bin/bash
 clear
-echo "Welcome to My Fight Game App!"
+echo "Hello $1 ! Let's play..."
+
 
 credits(){
   clear
@@ -15,7 +16,42 @@ exit_game(){
   echo "Thanks for playing!"
 }
 
+fight(){
+  echo "Prepare to fight!"
+  echo "The enemies suddenly rush you all at once!"
+  echo "You threw 50 punches and kicks!!"
+  ran_num=$(( RANDOM % 100 ))
+  echo "The enemy threw $ran_num punches and kicks"
+  if [[ $ran_num -gt 50 ]]; then
+    lose_fight
+  else
+    win_fight
+  fi
 
+}
+
+#Lose Fight
+lose_fight(){
+ echo "You didn't throw enough punches and you were defeated.  Try again..."
+ sleep 5
+ clear
+ main
+}
+
+#Win Fight
+win_fight(){
+  echo "You are victorious!!"
+  echo -n "Type Yes to play again or No to exit and Press Enter : "
+  read next_action
+  if [[ $next_action == "Yes" ]]; then
+    main
+  else
+    exit_game
+  fi
+}
+
+
+#Start game
 start_game(){
   clear
   echo "Oh no! You're surrounded by enemies."
@@ -24,9 +60,7 @@ start_game(){
   echo -n "Type fight or run and press Enter : "
   read action
   if [[ $action == "fight" ]]; then
-    echo "Congrats you won!!"
-    sleep 5
-    exit_game
+    fight
   elif [[ $action == "run" ]]; then
     echo "Running from it will not save you.  You lost!"
     echo -n "Would you like to play again? Type Yes or No and press Enter : "
