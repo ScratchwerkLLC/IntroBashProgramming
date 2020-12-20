@@ -7,6 +7,7 @@ credits(){
   echo "Credits..."
   echo "Developed by Ronnie King"
   echo "Thank you for playing the Scratchwerk Game!"
+  main
 }
 
 exit_game(){
@@ -14,14 +15,18 @@ exit_game(){
   echo "Thanks for playing!"
 }
 
-echo "1. Credits"
-echo "2. Exit"
-echo -n "Type the number of your option and press Enter : "
-read answer
-if [[ $answer -eq 1 ]]; then
-   credits
-elif [[ $answer -eq 2 ]]; then
-   exit_game
-else
-  echo "Invalid option"
-fi
+main(){
+  echo "1. Credits"
+  echo "2. Exit"
+  echo -n "Type the number of your option and press Enter : "
+  read answer
+  if [[ $answer -eq 1 ]]; then
+     credits
+  elif [[ $answer -eq 2 ]]; then
+     exit_game
+  else
+    echo "Invalid option"
+  fi
+}
+
+main
