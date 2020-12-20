@@ -24,20 +24,22 @@ start_game(){
   echo "If you fight them, you'll have a chance of winning"
   echo -n "Type fight or run and press Enter : "
   read action
-  if [[ $action == "fight"]]; then
+  if [[ $action == "fight" ]]; then
     echo "Congrats you won!!"
+    sleep 5
     exit_game
-  elif [[ $action == "run"]]; then
+  elif [[ $action == "run" ]]; then
     echo "Running from it will not save you.  You lost!"
     echo -n "Would you like to play again? Type Yes or No and press Enter : "
     read play_again
-    if [[ play_again == "Yes"]]; then
+    if [[ $play_again == "Yes" ]]; then
       start_game
     else
       exit_game
     fi
   else
     echo "Invalid choice!"
+    sleep 5
     exit_game
   fi
 }
