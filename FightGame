@@ -14,10 +14,14 @@ exit_game(){
   echo "Thanks for playing!"
 }
 
-echo -n "Would you like to show the game credits? Type Yes or No and press Enter : "
+echo "1. Credits"
+echo "2. Exit"
+echo -n "Type the number of your option and press Enter : "
 read answer
-if [[ $answer == "Yes" ]]; then
+if [[ $answer -eq 1 ]]; then
    credits
-else
+elif [[ $answer -eq 2 ]]; then
    exit_game
+else
+  echo "Invalid option"
 fi
